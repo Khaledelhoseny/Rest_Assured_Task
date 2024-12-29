@@ -13,7 +13,7 @@ public class ExcelDataSupllier {
 
     @DataProvider(name="loginData")
     public Object[][]  getData() throws Exception {
-        File excelFile = new File("D:\\RestAssuredTask\\data\\Untitled spreadsheet (1).xlsx");
+        File excelFile = new File("D:\\Rest_Assured_Task\\data\\ExcelData.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
         XSSFSheet sheet = workbook.getSheet("Sheet1");
