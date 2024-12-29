@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class UploadPetsImage extends BaseTests {
 
     Response response ;
-    public void sendRequestWithValidImageFile(){
+    public Response sendRequestWithValidImageFile(){
         File imageFile = new File("D:\\RestAssuredTask\\data\\images.jpeg");
         RequestSpecification request ;
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
@@ -23,13 +23,7 @@ public class UploadPetsImage extends BaseTests {
                 .pathParams("petID" , 1)
                 .log()
                 .all() ;
-        response = request.when().post("/pet/{petID}/uploadImage");
+        return response = request.when().post("/pet/{petID}/uploadImage");
     }
-    public void verifySuccessfulResponse(){
-        response.prettyPrint();
-        response.then()
-                .statusCode(HttpStatus.SC_OK)
-                .assertThat()
-                .body( "code", equalTo(200));
-    }
+
 }

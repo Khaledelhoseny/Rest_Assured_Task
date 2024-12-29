@@ -1,5 +1,6 @@
 package EndPoints;
 
+import ApiData.PerosnBody;
 import base.BaseTests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -11,18 +12,13 @@ import static org.hamcrest.Matchers.hasToString;
 public class Login extends BaseTests {
 
     Response response;
-    public void sendRequestWithValidData( String username , String password ){
+    public Response sendLogin(String username , String password){
         queryParam.put("username " , username);
         queryParam.put("password", password);
-        response  = sendRequest("GET" ,"/user/login" , null ) ;
+        Response response  = sendRequest("GET" ,"/user/login" , null ) ;
+        return response;
     }
 
-    public void verifySuccessfulResponse(){
-            response.prettyPrint();
-            response.then()
-                    .statusCode(HttpStatus.SC_OK)
-                    .assertThat()
-                    .body( "code", equalTo(200));
-    }
+
 
 }
