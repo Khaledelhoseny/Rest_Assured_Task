@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="chrome">
+        <parameter name="browser" value="chrome"></parameter>
+       <classes>
+           <class name="tests.CreateWithArrayTests"></class>
+           <class name="tests.PersonTests"></class>
+           <class name="tests.PetsTests"></class>
+           <class name="tests.LoginTests"></class>
+           <class name="tests.LogoutTests"></class>
+           <class name="tests.UploadPetsImageTests"></class>
+       </classes>
+    </test>
+</suite>
